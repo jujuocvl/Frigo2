@@ -133,6 +133,10 @@ onMounted(AfficheFrigo);
 </script>
 
 <template>
+    <head>
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+</head>
+
     <div class="formulaire">
         <!-- Un formulaire pour ajouter produit -->
         <form @submit.prevent="ajouteProduit">
