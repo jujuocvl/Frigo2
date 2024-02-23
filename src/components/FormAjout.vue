@@ -75,6 +75,10 @@ h3 { /* titre "ajouter un prod au frigo"*/
     margin: 0 auto;
 }
 
+.boutonSubmit:hover{
+    color:#000000; 
+}
+
 .input { /*couleur fond textfield prod et qte */
     height: 30px;
     border-radius: 5px;

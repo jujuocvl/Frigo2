@@ -1,4 +1,19 @@
 <!--rechercher des produits-->
+<script setup>
+import { reactive } from 'vue';
+
+const ContenuF = {
+    id: "",
+    nom: "",
+    qte: ""
+};
+
+let data = reactive({
+    formFrigo: { ...ContenuF },
+    ContenuF: []
+});
+</script>
+
 <template>
     <div id="form">
         <form @submit.prevent="$emit('search', nom)">
@@ -28,6 +43,11 @@ label {
     border-radius: 5px; /* arrondir les bords */
     margin: 0 auto;
 }
+
+#Bouton:hover{
+    /*border: solid 2px #D1E2EB;*/
+    color:#000000; 
+}
 #text{
     text-decoration: none;
     padding: 1em;
@@ -48,7 +68,7 @@ label {
     font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
     font-weight: normal;
-    padding: 0.5em;
+    padding: 1em;
     border-radius: 5px;
 }
 

@@ -173,7 +173,7 @@ function search(nom) {
         <label2>Résultat de la recherche :</label2>
         <div id="select">
             <select id="search">
-                <option value="" disabled selected>Résultat de la recherche</option>
+                <option value="" disabled selected>Résultat de la recherche...</option>
             </select>
         </div>
    
@@ -232,9 +232,8 @@ label2 {
     flex-direction: column;
     width: 400px;
     background-color: #D1E2EB;
-    padding: 1em;
+    padding: 0.5em;
     border-radius: 10px;
-    font-size: 1em;
-    font-weight: bold;
+    font-size: 0.9em;
     }
 </style>
