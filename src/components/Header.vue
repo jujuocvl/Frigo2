@@ -1,5 +1,4 @@
 <script setup>
-    console.log("ok")
 </script>
 
 <template>
@@ -7,7 +6,6 @@
 </template>
 
 <style scoped>
-
 header {
     color: #0570FF;
     font-family: 'Tahoma', bold;

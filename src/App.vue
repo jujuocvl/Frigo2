@@ -1,12 +1,9 @@
-<template>
-  <FrigoHeader></FrigoHeader>
-  <Frigo></Frigo>
-</template>
-
 <script setup>
-  import FrigoHeader from './components/FrigoHeader.vue';
-  import Frigo from './components/Frigo.vue';
+  import Header from './components/Header.vue';
+  import Contenu from './components/Contenu.vue';
 </script>
 
-<style>
-</style>
+<template>
+  <Header></Header>
+  <Contenu></Contenu>
+</template>

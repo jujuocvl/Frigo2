@@ -1,3 +1,3 @@
-const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/21/produits";
+const url = "https://webmmi.iut-tlse3.fr/~pecatte/frigo/public/20/produits";
 
 export { url };
