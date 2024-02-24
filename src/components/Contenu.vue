@@ -13,10 +13,10 @@ const produits = reactive([]);
 //Liste pour recherche :
 const produitsSearch = reactive([]);
 
-//Fonction qui appelle la méthode getTodos (cycle de vie)
-//onMounted(() => {
+//Fonction qui appelle la méthode AfficheFrigo (cycle de vie)
+onMounted(() => {
     AfficheFrigo()
-//});
+});
 
 //Meth pour requete GET sur API pour récup données BD puis stock dans "produits"
 function AfficheFrigo(){
@@ -28,12 +28,12 @@ function AfficheFrigo(){
         return response.json()
     })
     .then((dataJSON) => {
-        produits.splice(0,produits.length)
+        produits.splice(0,produits.length) // recuperer les produits 1 par 1
         dataJSON.forEach((v)=>produits.push(new Produit(v.id, v.nom, v.qte)))
     })
     .catch((error) => console.log(error));
 }
-function ajouteProduit(nom, qte) {
+function ajouteProduit() {
     //lié a "FormAjout.vue"
     if (data.FormAjout.nom.length == 0) {
         alert("Veuillez saisir un produit");
@@ -47,7 +47,8 @@ function ajouteProduit(nom, qte) {
     else {
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        const fetchOptions = {method:"POST", headers: myHeaders, body: JSON.stringify({nom:nom, qte:qte})};
+        // POST pour faire un enregistrement
+        const fetchOptions = {method:"POST", headers: myHeaders, body: JSON.stringify({nom:data.FormAjout.nom, qte:data.FormAjout.qte})};
         fetch(url,fetchOptions)
         .then((response) => {
             return response.json()
@@ -59,7 +60,7 @@ function ajouteProduit(nom, qte) {
     }
 }
 
-    function supprimerProduit(entityRef) {
+function supprimerProduit(entityRef) {
     let options = {
         "method": "DELETE"
     };
@@ -75,13 +76,13 @@ function ajouteProduit(nom, qte) {
         })
 }
 
-function augmenterQte(produit) {
+function augmenterQte(idRef, nomRef, qteRef) {
     let options = {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({id:produit.id, nom:produit.nom, qte:produit.qte+1 })
+        body: JSON.stringify({id:idRef, nom:nomRef, qte:qteRef+=1 })
     };
     fetch(url, options)
         .then((response) => {
@@ -89,6 +90,7 @@ function augmenterQte(produit) {
         })
         .then((dataJson) => {
             //console.log(dataJson);
+            console.log(entityRef, titleref, qteRef);
             AfficheFrigo();
         })
         .catch((error) => {
@@ -102,7 +104,7 @@ function diminuerQte(produit) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ id:produit.id, nom:produit.nom, qte:produit.qte-1 })
+        body: JSON.stringify({ id:produit.id, nom:produit.nom, qte:produit.qte-=1 })
     };
     fetch(url, options)
         .then((response) => {

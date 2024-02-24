@@ -83,6 +83,8 @@ h3 { /* titre "ajouter un prod au frigo"*/
     height: 30px;
     border-radius: 5px;
     background-color:#D1E2EB;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
 }
 
 ::placeholder { /* couleur typo textfield*/

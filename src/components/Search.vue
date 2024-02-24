@@ -27,52 +27,29 @@ let data = reactive({
     </template>
     
 <style>
-label {
-    color: #0570FF;
-    font-family: Arial, sans-serif; /* Police de caractères */
-    font-size: 20px; /* Taille de la police */
-    font-weight: thin;
-}
 #Bouton{
     text-decoration: none;
     background-color: #0570FF;
+    border-radius: 5px;
     color:#ffffff; /*couleur typo bouton*/
     font-weight: bold;
     height: 30px;
     width: 130px;
-    border-radius: 5px; /* arrondir les bords */
     margin: 0 auto;
 }
 
 #Bouton:hover{
-    /*border: solid 2px #D1E2EB;*/
     color:#000000; 
 }
 #text{
     text-decoration: none;
+    background-color: #d6eefc;
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
-}
+    }
 
-.input {
-    height: 30px;
-    border-radius: 5px;
-    background-color:#D1E2EB;
-}
-
-::placeholder {
-    height: 30px;
-    background-color: #D1E2EB;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    font-weight: normal;
-    padding: 1em;
-    border-radius: 5px;
-}
-
-form{
+form{ /* position et contour de la bordure*/
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -82,6 +59,7 @@ form{
     font-size: 1em;
     font-weight: bold;
     text-align: center;
+    
 }
 #form{
     display: flex;
@@ -89,4 +67,26 @@ form{
     align-items: center;
     justify-content: center;
 }
+label {
+    color: #0570FF;
+    font-family: Arial, sans-serif; /* Police de caractères */
+    font-size: 20px; /* Taille de la police */
+    font-weight: thin;
+}
+input {
+    height: 30px;
+    border-radius: 5px;
+    background-color:#D1E2EB;
+}
+
+::placeholder {
+    height: 30px;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
 </style>

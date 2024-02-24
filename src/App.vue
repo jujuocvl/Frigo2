@@ -4,6 +4,7 @@
 </script>
 
 <template>
+  <!--<head><title>Mon frigo</title></head>-->
   <Header></Header>
   <Contenu></Contenu>
 </template>
