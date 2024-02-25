@@ -2,15 +2,15 @@
 <script setup>
 import { reactive } from 'vue';
 
-const ContenuF = {
+const emptyList = {
     id: "",
     nom: "",
     qte: ""
 };
 
 let data = reactive({
-    FormAjout: { ...ContenuF },
-    ContenuF: []
+    FormAjout: { ...emptyList },
+    ContenuFrigo: []
 });
 </script>
 
