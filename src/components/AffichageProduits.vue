@@ -1,14 +1,15 @@
 <!--Affichage des produits de la liste-->
 <script setup>
-defineProps(["produit"]);
+const {produit} = defineProps(["produit"]);
 </script>
 
 <template>
    <div id="produit">
     <div id="nomProd">{{produit.afficherNom()}}</div>
+    <img :src="produit.photo" alt="Image"/> 
+    <!-- alt = texte alternatif si l'image ne peut être affichée-->
     <br>
     <div id="qteProd">{{produit.afficherQte()}}</div>
-    <br>
     <button id="moins" @click="$emit('eventDown', produit)">-</button>
     <!-- <span class="espacementCaracteres">````</span> -->
     <button id="plus" @click="$emit('eventUp', produit)">+</button>
@@ -19,7 +20,10 @@ defineProps(["produit"]);
 </template>
 
 <style>
-
+img{
+    width: 120px;
+    height: 100px;
+}
 #moins:hover{
     width: 20px;
     background-color: rgb(245, 136, 136);

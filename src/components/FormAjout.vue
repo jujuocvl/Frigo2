@@ -18,6 +18,7 @@ let data = reactive({
 <div id="formulaire">
         <form @submit.prevent="$emit('add', nom, qte)">
             <h3>Ajouter un produit au frigo :</h3>
+            <br>
             <div>
                 <label>Nom du produit à ajouter :</label>
                 <br>

@@ -32,6 +32,7 @@ let data = reactive({
     background-color: #0570FF;
     border-radius: 5px;
     color:#ffffff; /*couleur typo bouton*/
+    font-family: Arial, sans-serif;
     font-weight: bold;
     height: 30px;
     width: 130px;
@@ -77,8 +78,9 @@ input {
     height: 30px;
     border-radius: 5px;
     background-color:#D1E2EB;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
 }
-
 ::placeholder {
     height: 30px;
     color: #000000;

@@ -1,9 +1,10 @@
 //Un produit
 export default class Produit {
-    constructor (id, nom, qte = 1) {
+    constructor (id, nom, qte, photo) {
         this._nom = nom;
         this._qte = qte;
-        this._id = id
+        this._id = id;
+        this._photo = photo;
     }
     get nom() {
         return this._nom;
@@ -14,9 +15,15 @@ export default class Produit {
     get qte() {
         return this._qte
     }
+    get photo() {
+        return this._photo;
+    }
     //Modif nom
     set nom(nom) {
         this._nom = nom;
+    }
+    setQte(quantité) {
+        this._qte += quantité;
     }
     //Affichage :
     afficherNom(){

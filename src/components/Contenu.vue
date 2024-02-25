@@ -29,10 +29,13 @@ function AfficheFrigo(){
     })
     .then((dataJSON) => {
         produits.splice(0,produits.length) // recuperer les produits 1 par 1
-        dataJSON.forEach((v)=>produits.push(new Produit(v.id, v.nom, v.qte)))
+        for(let p of dataJSON) {
+            produits.push(new Produit (p.id, p.nom, p.qte, p.photo))
+        }
     })
     .catch((error) => console.log(error));
 }
+
 function ajouteProduit() {
     //lié a "FormAjout.vue"
     if (data.FormAjout.nom.length == 0) {
@@ -76,21 +79,21 @@ function supprimerProduit(entityRef) {
         })
 }
 
-function augmenterQte(idRef, nomRef, qteRef) {
+function augmenterQte(produits) {
     let options = {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({id:idRef, nom:nomRef, qte:qteRef+=1 })
+        body: JSON.stringify({id:produits.id, nom:produits.nom, qte:produits.setQte(1), photo:produits.photo })
     };
     fetch(url, options)
         .then((response) => {
             return response.json();
         })
         .then((dataJson) => {
-            //console.log(dataJson);
-            console.log(entityRef, titleref, qteRef);
+            console.log(dataJson);
+            //console.log(entityRef, titleref, qteRef);
             AfficheFrigo();
         })
         .catch((error) => {
@@ -98,13 +101,13 @@ function augmenterQte(idRef, nomRef, qteRef) {
         })
 }
 
-function diminuerQte(produit) {
+function diminuerQte(produits) {
     let options = {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ id:produit.id, nom:produit.nom, qte:produit.qte-=1 })
+        body: JSON.stringify({ id:produits.id, nom:produits.nom, qte:produits.setQte(-1), photo:produits.photo })
     };
     fetch(url, options)
         .then((response) => {
@@ -166,13 +169,10 @@ function search(nom) {
         <br>
         <!--Recherche d'un produit : -->
         <h3>Rechercher un produit</h3>
-        <br>
         <div id="Recherche">
-        <br>
             <Search @search="search"/>
         </div>
-        <br>
-        <label2>Résultat de la recherche :</label2>
+        <label>Résultat de la recherche :</label>
         <div id="select">
             <select id="search">
                 <option value="" disabled selected>Résultat de la recherche...</option>
@@ -194,7 +194,7 @@ h3{
     color:#0570FF;
     text-align: center;
 }
-label2 {
+label {
     display: flex;
     color: #0570FF;
     justify-content: center;
