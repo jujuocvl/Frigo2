@@ -20,10 +20,10 @@ onMounted(() => {
 
 //Meth pour requete GET sur API pour récup données BD puis stock dans "produits"
 function AfficheFrigo(){
-    const fetchOptions = {
+    const options = {
         method:"GET"
     };
-    fetch(url,fetchOptions)
+    fetch(url,options)
     .then((response) => {
         return response.json()
     })
@@ -34,33 +34,6 @@ function AfficheFrigo(){
         }
     })
     .catch((error) => console.log(error));
-}
-
-function ajouteProduit() {
-    //lié a "FormAjout.vue"
-    if (data.FormAjout.nom.length == 0) {
-        alert("Veuillez saisir un produit");
-    }
-    else if (data.FormAjout.qte.length == 0) {
-        alert("Veuillez saisir une quantité");
-    }
-    else if (data.FormAjout.qte <= 0) {
-        alert("La quantité doit être positive");
-    }
-    else {
-        let myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        // POST pour faire un enregistrement
-        const fetchOptions = {method:"POST", headers: myHeaders, body: JSON.stringify({nom:data.FormAjout.nom, qte:data.FormAjout.qte})};
-        fetch(url,fetchOptions)
-        .then((response) => {
-            return response.json()
-        })
-        .then((dataJSON) => {
-        AfficheFrigo()
-    })
-    .catch((error) => console.log(error));
-    }
 }
 
 function supprimerProduit(entityRef) {
@@ -126,9 +99,43 @@ function diminuerQte(produits) {
         })
 }
 
+function ajouteProduit() {
+    //lié a "FormAjout.vue"
+    if (data.FormAjout.nom.length == 0) {
+        alert("Veuillez saisir un produit");
+    }
+    else if (data.FormAjout.qte.length == 0) {
+        alert("Veuillez saisir une quantité");
+    }
+    else if (data.FormAjout.qte <= 0) {
+        alert("La quantité doit être positive");
+    }
+    else {
+        const options = {
+            method: "POST", // post pour ajout enregistrement
+            body: JSON.stringify(data.FormAjout),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        };
+        fetch(url + "?sort=id,desc",options)
+        .then((response) => {
+            return response.json()
+        })
+        .then((dataJSON) => {
+            data.produits = dataJSON;
+        AfficheFrigo()
+    })
+    .catch((error) => console.log(error));
+    }
+    data.FormAjout.nom = '';
+    data.FormAjout.qte = '';
+}
+
 function search(nom) {
-    const fetchOptions = {method:"GET"};
-    fetch(url+`?search=${nom}`,fetchOptions)
+    const options = {
+        method:"GET"};
+    fetch(url+`?search=${nom}`,options)
     .then((response) => {return response.json()})
     .then((dataJSON) => {
         produitsSearch.splice(0,produitsSearch.length)
@@ -172,6 +179,7 @@ function search(nom) {
         <div id="Recherche">
             <Search @search="search"/>
         </div>
+
         <label>Résultat de la recherche :</label>
         <div id="select">
             <select id="search">

@@ -19,7 +19,7 @@ export default class Produit {
         return this._photo;
     }
     //Modif nom
-    set nom(nom) {
+    setNom(nom) {
         this._nom = nom;
     }
     setQte(quantité) {

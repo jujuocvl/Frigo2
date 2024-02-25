@@ -9,7 +9,7 @@ const ContenuF = {
 };
 
 let data = reactive({
-    formFrigo: { ...ContenuF },
+    FormAjout: { ...ContenuF },
     ContenuF: []
 });
 </script>
@@ -22,12 +22,12 @@ let data = reactive({
             <div>
                 <label>Nom du produit à ajouter :</label>
                 <br>
-                <input id="nom" class="input" name="nom" v-model="data.formFrigo.nom" placeholder="Produit à ajouter..." required/>
+                <input id="nom" class="input" name="nom" v-model="data.FormAjout.nom" placeholder="Produit à ajouter..." required/>
             </div>
             <div>
                 <label>Quantité du produit à ajouter :</label>
                 <br>
-                <input id="qte" class="input" name="qteFrigo" v-model="data.formFrigo.qte" placeholder="Quantité à ajouter..." min="1" step="1" required/>
+                <input id="qte" class="input" name="qteFrigo" v-model="data.FormAjout.qte" placeholder="Quantité à ajouter..." min="1" step="1" required/>
             </div>
             <br>
             <button class="boutonSubmit" type="submit">Ajouter</button>
