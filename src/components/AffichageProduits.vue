@@ -11,7 +11,6 @@ const {produit} = defineProps(["produit"]);
     <br>
     <div id="qteProd">{{produit.afficherQte()}}</div>
     <button id="moins" @click="$emit('eventDown', produit)">-</button>
-    <!-- <span class="espacementCaracteres">````</span> -->
     <button id="plus" @click="$emit('eventUp', produit)">+</button>
     <br>
     <button id="supp" @click="$emit('eventSupp', produit.id)">Supprimer</button>

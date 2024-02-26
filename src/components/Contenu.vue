@@ -13,8 +13,6 @@ const produits = reactive([]);
 //Liste pour recherche :
 const produitsSearch = reactive([]);
 
-
-
 //Fonction qui appelle la méthode AfficheFrigo (cycle de vie)
 onMounted(() => {
     AfficheFrigo()
@@ -138,7 +136,9 @@ function search(nom) {
         method: "GET"
     };
     fetch(url + `?search=${nom}`, options)
-        .then((response) => { return response.json() })
+        .then((response) => { 
+            return response.json() 
+        })
         .then((dataJSON) => {
             produitsSearch.splice(0, produitsSearch.length)
             dataJSON.forEach((v) => produitsSearch.push(new Produit(v.id, v.nom, v.qte)))
@@ -251,5 +251,5 @@ label {
     background-color: #D1E2EB;
     padding: 0.5em;
     border-radius: 10px;
-    font-size: 0.75em;
+    font-size: 1em;
 }</style>

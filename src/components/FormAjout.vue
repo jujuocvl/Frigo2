@@ -36,8 +36,8 @@ let photo ="";
 <style scoped>
 label {
     color: #0570FF;
-    font-family: Arial, sans-serif; /* Police de caractères */
-    font-size: 14px; /* Taille de la police */
+    font-family: Arial, sans-serif;
+    font-size: 15px;
     font-weight: thin;
 }
 .formulaire {
@@ -89,7 +89,7 @@ h3 { /* titre "ajouter un prod au frigo"*/
 ::placeholder { /* couleur typo textfield*/
     color: #000000;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: thin;
     padding: 0.5em;
 }
