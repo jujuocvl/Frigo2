@@ -27,11 +27,10 @@ let data = reactive({
             <div>
                 <label>Quantité du produit à ajouter :</label>
                 <br>
-                <input id="qte" class="input" name="qteFrigo" v-model="data.FormAjout.qte" placeholder="Quantité à ajouter..." min="1" step="1" required/>
+                <input id="qte" class="input" name="qte" v-model="data.FormAjout.qte" placeholder="Quantité à ajouter..." min="1" step="1" required/>
             </div>
             <br>
             <button class="boutonSubmit" type="submit">Ajouter</button>
-            <br>
         </form>
     </div>
 </template>

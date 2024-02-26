@@ -50,7 +50,7 @@ img{
 #produit{
     margin-top: 20px;
     margin-right: 20px;
-    background-color:#D1E2EB;
+    background-color:#e7ecf0;
     padding: 1em;
     border-radius: 10px ;
     font-family: Arial, sans-serif;
@@ -59,7 +59,7 @@ img{
 }
 
 #produit:hover{
-    background-color:#D1E2EB;
+    background-color:#e7ecf0;
     border-radius: 10px;
     border: solid 2px #0570FF;
 }

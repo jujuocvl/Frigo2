@@ -4,6 +4,15 @@
 </script>
 
 <template>
-  <Header></Header>
-  <Contenu></Contenu>
+  <div id="page">
+    <Header></Header>
+    <Contenu></Contenu>
+  </div>
 </template>
+
+<style scoped>
+#page{
+  background-image: url('frigo.webp');
+  background-size: cover;
+}
+</style>

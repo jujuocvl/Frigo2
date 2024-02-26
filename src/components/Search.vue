@@ -57,6 +57,7 @@ form{ /* position et contour de la bordure*/
     padding: 1em;
     border-radius: 10px;
     border: solid 2px #0570FF;
+    background-color:#e7ecf0;
     font-size: 1em;
     font-weight: bold;
     text-align: center;

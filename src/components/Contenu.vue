@@ -131,6 +131,17 @@ function ajouteProduit() {
     data.FormAjout.nom = '';
     data.FormAjout.qte = '';
 }
+/*matis
+function addProduit() {
+  let produitToAdd = new Produit(-1, data.value.itemName, data.value.quantity, data.value.photoUrl);
+  emit('handlerAddProduits', produitToAdd);
+  data.value.itemName = '';
+  data.value.quantity = '';
+  data.value.photoUrl = '';
+
+  data.value.dialog = false
+}
+*/
 
 function search(nom) {
     const options = {
@@ -193,7 +204,6 @@ function search(nom) {
 
 <style scoped>
 h3{
-    border-radius: 10px;
     background-color:#D1E2EB;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: normal;
@@ -230,7 +240,7 @@ label {
 
 #select{
     display: flex;
-    height: 200px;
+    height: 50px;
     align-items: center;
     justify-content: center;
 }
@@ -244,6 +254,6 @@ label {
     background-color: #D1E2EB;
     padding: 0.5em;
     border-radius: 10px;
-    font-size: 0.9em;
+    font-size: 0.75em;
     }
 </style>
