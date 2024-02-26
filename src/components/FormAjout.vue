@@ -1,33 +1,31 @@
 <!-- Un formulaire pour ajouter produit -->
 <script setup>
-import { reactive } from 'vue';
 
-const emptyList = {
-    id: "",
-    nom: "",
-    qte: ""
-};
+let nom= "";
+let qte= "";
+let photo ="";
 
-let data = reactive({
-    FormAjout: { ...emptyList },
-    ContenuFrigo: []
-});
 </script>
 
 <template>
 <div id="formulaire">
-        <form @submit.prevent="$emit('add', nom, qte)">
+        <form @submit.prevent="$emit('add', nom, qte,photo)">
             <h3>Ajouter un produit au frigo :</h3>
             <br>
             <div>
                 <label>Nom du produit à ajouter :</label>
                 <br>
-                <input id="nom" class="input" name="nom" v-model="data.FormAjout.nom" placeholder="Produit à ajouter..." required/>
+                <input id="nom" class="input" name="nom" v-model="nom" placeholder="Produit à ajouter..." required/>
             </div>
             <div>
                 <label>Quantité du produit à ajouter :</label>
                 <br>
-                <input id="qte" class="input" name="qte" v-model="data.FormAjout.qte" placeholder="Quantité à ajouter..." min="1" step="1" required/>
+                <input id="qte" class="input" name="qte" v-model="qte" placeholder="Quantité à ajouter..." min="1" step="1" required/>
+            </div>
+            <div>
+                <label>Photo du produit à ajouter :</label>
+                <br>
+                <input id="photo" class="input" name="photo" v-model="photo" placeholder="Url à ajouter..."/>
             </div>
             <br>
             <button class="boutonSubmit" type="submit">Ajouter</button>
@@ -81,6 +79,7 @@ h3 { /* titre "ajouter un prod au frigo"*/
 
 .input { /*couleur fond textfield prod et qte */
     height: 30px;
+    width: 365px;
     border-radius: 5px;
     background-color:#D1E2EB;
     font-family: 'Courier New', Courier, monospace;

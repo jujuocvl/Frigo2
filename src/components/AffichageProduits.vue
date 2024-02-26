@@ -37,8 +37,10 @@ img{
 }
 
 .supp {
-    height: 40px;
+    height: 50px;
     cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
 
 #supp:hover{

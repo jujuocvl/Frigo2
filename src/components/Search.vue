@@ -1,17 +1,7 @@
 <!--rechercher des produits-->
 <script setup>
-import { reactive } from 'vue';
-
-const ContenuF = {
-    id: "",
-    nom: "",
-    qte: ""
-};
-
-let data = reactive({
-    formFrigo: { ...ContenuF },
-    ContenuF: []
-});
+const nom = ref('');
+import {ref} from 'vue';
 </script>
 
 <template>
