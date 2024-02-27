@@ -25,7 +25,7 @@ export default class Produit {
     setQte(quantité) {
         this._qte += quantité;
     }
-    //Affichage :
+    //Affichage
     afficherNom(){
         return `${this._nom}`;
     }

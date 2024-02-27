@@ -8,17 +8,15 @@ import { reactive } from 'vue';
 import { url } from '../urlapi.js';
 import Search from "./Search.vue";
 
-//Liste des produits :
-const produits = reactive([]);
-//Liste pour recherche :
-const produitsSearch = reactive([]);
+const produits = reactive([]);//Liste prod
 
-//Fonction qui appelle la méthode AfficheFrigo (cycle de vie)
+const produitsSearch = reactive([]);//Liste search
+
 onMounted(() => {
     AfficheFrigo()
 });
 
-//Meth pour requete GET sur API pour récup données BD puis stock dans "produits"
+//GET sur API pour récup données BD puis stock dans "produits"
 function AfficheFrigo() {
     const options = {
         method: "GET"
@@ -141,7 +139,7 @@ function search(nom) {
         })
         .then((dataJSON) => {
             produitsSearch.splice(0, produitsSearch.length)
-            dataJSON.forEach((v) => produitsSearch.push(new Produit(v.id, v.nom, v.qte)))
+            dataJSON.forEach((p) => produitsSearch.push(new Produit(p.id, p.nom, p.qte)))
 
             let texteHTML = ""
             for (let p of produitsSearch) {
@@ -156,7 +154,7 @@ function search(nom) {
 <template>
     <br>
     <div>
-        <!--Liste des produits :-->
+        <!--Liste prod-->
         <h3>Contenu</h3>
         <div id="listeProd">
             <ul>
@@ -167,7 +165,7 @@ function search(nom) {
             </ul>
         </div>
 
-        <!--Ajout d'un produit :-->
+        <!--Ajout prod-->
         <br>
         <h3>Ajouter un produit</h3>
         <br>
@@ -179,7 +177,7 @@ function search(nom) {
         <br>
         <br>
         <br>
-        <!--Recherche d'un produit : -->
+        <!--Recherche prod -->
         <h3>Rechercher un produit</h3>
         <div id="Recherche">
             <Search @search="search" />
